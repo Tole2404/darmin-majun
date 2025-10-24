@@ -1,104 +1,262 @@
-# Kain Lap Majun - Laravel API
+# 🧵 Kain Lap Majun - E-Commerce Platform
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+</p>
 
-## 🚀 Quick Start
+<p align="center">
+  <strong>Platform E-Commerce Modern untuk Penjualan Kain Lap Majun</strong><br>
+  Dibangun dengan Laravel 11, TailwindCSS, dan teknologi web modern
+</p>
 
-Project Laravel 11 API untuk **Kain Lap Majun** dengan fitur lengkap:
-- ✅ Laravel 11 (Latest Version)
-- ✅ MySQL Database
-- ✅ Manual Authentication (Laravel Sanctum)
-- ✅ File Upload & Storage
-- ✅ Email Configuration (SMTP)
+---
 
-### Instalasi & Setup
+## 📋 Deskripsi Project
 
+**Kain Lap Majun** adalah platform e-commerce full-stack yang dirancang khusus untuk penjualan kain lap majun berkualitas. Project ini menggabungkan backend Laravel yang powerful dengan frontend yang responsive dan modern.
+
+### ✨ Fitur Utama
+
+#### 🛒 **E-Commerce Features**
+- **Product Management** - CRUD lengkap untuk produk dengan upload gambar
+- **Category Management** - Organisasi produk berdasarkan kategori
+- **Shopping Cart** - Keranjang belanja dengan session management
+- **Product Search & Filter** - Pencarian dan filter produk berdasarkan kategori
+- **Product Detail Page** - Halaman detail produk dengan informasi lengkap
+
+#### 👤 **User Management**
+- **Authentication System** - Register, Login, Logout dengan Laravel Sanctum
+- **User Roles** - Admin dan Customer dengan hak akses berbeda
+- **Profile Management** - Kelola profil pengguna
+
+#### 🎨 **Admin Panel**
+- **Dashboard** - Overview statistik penjualan dan produk
+- **Product Management** - Tambah, edit, hapus produk
+- **Category Management** - Kelola kategori produk
+- **User Management** - Kelola data pengguna
+
+#### 🎯 **Frontend Features**
+- **Landing Page** - Homepage modern dan menarik
+- **Responsive Design** - Tampilan optimal di semua device
+- **Modern UI/UX** - Interface yang user-friendly dengan TailwindCSS
+- **Dynamic Content** - Konten dinamis dari database
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+- **Framework:** Laravel 11
+- **Database:** MySQL
+- **Authentication:** Laravel Sanctum
+- **Storage:** Laravel File Storage
+
+### Frontend
+- **CSS Framework:** TailwindCSS 3.x
+- **Build Tool:** Vite
+- **Template Engine:** Blade
+- **Icons:** Heroicons
+
+### Development Tools
+- **PHP:** 8.2+
+- **Composer:** 2.x
+- **Node.js:** 18.x+
+- **NPM:** 9.x+
+
+---
+
+## 🚀 Instalasi & Setup
+
+### Prerequisites
+Pastikan Anda sudah menginstall:
+- PHP >= 8.2
+- Composer
+- MySQL
+- Node.js & NPM
+
+### Langkah Instalasi
+
+1. **Clone Repository**
 ```bash
-# Install dependencies
+git clone https://github.com/Tole2404/darmin-majun.git
+cd darmin-majun
+```
+
+2. **Install Dependencies**
+```bash
+# Install PHP dependencies
 composer install
 
-# Setup environment
+# Install Node dependencies
+npm install
+```
+
+3. **Environment Setup**
+```bash
+# Copy environment file
 cp .env.example .env
 
 # Generate application key
 php artisan key:generate
+```
 
-# Create symbolic link for storage
-php artisan storage:link
+4. **Database Configuration**
 
+Edit file `.env` dan sesuaikan konfigurasi database:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=kain_lap_majun
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+5. **Database Migration**
+```bash
 # Run migrations
 php artisan migrate
 
-# Start development server
+# (Optional) Seed data
+php artisan db:seed
+```
+
+6. **Storage Link**
+```bash
+# Create symbolic link for storage
+php artisan storage:link
+```
+
+7. **Build Assets**
+```bash
+# Development
+npm run dev
+
+# Production
+npm run build
+```
+
+8. **Start Development Server**
+```bash
 php artisan serve
 ```
 
 Server akan berjalan di: **http://localhost:8000**
 
-### 📚 Dokumentasi Lengkap
+---
 
-📖 **[README_API.md](README_API.md)** - Dokumentasi lengkap API, endpoints, dan cara penggunaan
+## 📁 Struktur Project
 
-### 🧪 Testing API
-
-Import file **Kain_Lap_Majun_API.postman_collection.json** ke Postman untuk testing API.
+```
+darmin-majun/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/      # Controllers untuk business logic
+│   │   └── Middleware/       # Custom middleware
+│   └── Models/               # Eloquent models
+├── database/
+│   ├── migrations/           # Database migrations
+│   └── seeders/              # Database seeders
+├── public/
+│   ├── css/                  # Custom CSS
+│   └── storage/              # Public storage (symlink)
+├── resources/
+│   └── views/
+│       ├── components/       # Reusable Blade components
+│       ├── admin/            # Admin panel views
+│       └── *.blade.php       # Page views
+├── routes/
+│   ├── web.php               # Web routes
+│   └── api.php               # API routes
+└── storage/
+    └── app/public/           # File uploads
+```
 
 ---
 
-## About Laravel
+## 🎯 Cara Penggunaan
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Akses Admin Panel
+1. Buat akun admin atau gunakan seeder
+2. Login ke sistem
+3. Akses admin panel di `/admin/dashboard`
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Kelola Produk
+1. Login sebagai admin
+2. Navigasi ke **Products** > **Add Product**
+3. Isi form dengan detail produk
+4. Upload gambar produk
+5. Klik **Save**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Kelola Kategori
+1. Login sebagai admin
+2. Navigasi ke **Categories**
+3. Tambah/Edit/Hapus kategori sesuai kebutuhan
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📚 Dokumentasi Tambahan
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **[README_API.md](README_API.md)** - Dokumentasi API endpoints
+- **[AUTHENTICATION_SETUP.md](AUTHENTICATION_SETUP.md)** - Setup authentication system
+- **[LANDING_PAGE_GUIDE.md](LANDING_PAGE_GUIDE.md)** - Panduan landing page
+- **[CRUD_PRODUCTS_DOCUMENTATION.md](CRUD_PRODUCTS_DOCUMENTATION.md)** - CRUD produk
+- **[CRUD_CATEGORIES_DOCUMENTATION.md](CRUD_CATEGORIES_DOCUMENTATION.md)** - CRUD kategori
+- **[ADMIN_PANEL_COMPLETE.md](ADMIN_PANEL_COMPLETE.md)** - Panduan admin panel
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🧪 Testing
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### API Testing
+Import file **Kain_Lap_Majun_API.postman_collection.json** ke Postman untuk testing API endpoints.
 
-### Premium Partners
+### Manual Testing
+```bash
+# Run PHP unit tests
+php artisan test
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## 🔐 Security
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Authentication:** Laravel Sanctum untuk API authentication
+- **CSRF Protection:** Built-in Laravel CSRF protection
+- **Password Hashing:** Bcrypt hashing untuk password
+- **Input Validation:** Server-side validation untuk semua input
+- **File Upload Security:** Validasi tipe dan ukuran file
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🤝 Contributing
 
-## Security Vulnerabilities
+Kontribusi sangat diterima! Silakan:
+1. Fork repository ini
+2. Buat branch baru (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 📝 License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Project ini menggunakan [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+## 👨‍💻 Developer
+
+Dikembangkan dengan ❤️ menggunakan Laravel Framework
+
+**Contact:**
+- GitHub: [@Tole2404](https://github.com/Tole2404)
+
+---
+
+## 🙏 Acknowledgments
+
+- [Laravel](https://laravel.com) - The PHP Framework
+- [TailwindCSS](https://tailwindcss.com) - CSS Framework
+- [Heroicons](https://heroicons.com) - Beautiful Icons
